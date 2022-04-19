@@ -103,6 +103,11 @@ nav .container {
     justify-content: space-between;
 }
 
+nav .container a {
+    color: var(--color-primary);
+    cursor: pointer;
+}
+
 nav .search_bar {
     background: var(--color-light);
     border-radius: var(--border-radius);

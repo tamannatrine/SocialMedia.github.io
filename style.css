@@ -78,7 +78,7 @@ img {
 }
 
 .text_bold {
-    font-weight: 500;
+    font-weight: 600;
 }
 
 .text_muted {
@@ -108,13 +108,13 @@ nav .container a {
     cursor: pointer;
 }
 
-nav .search_bar {
+.search_bar {
     background: var(--color-light);
     border-radius: var(--border-radius);
     padding: var(--search-padding);
 }
 
-nav .search_bar input[type="search"] {
+.search_bar input[type="search"] {
     background: transparent;
     width: 30vw;
     margin-left: 1rem;
@@ -122,7 +122,8 @@ nav .search_bar input[type="search"] {
     color: var(--color-dark);
 }
 
-nav .search_bar input[type="search"]::placeholder {
+
+.search_bar input[type="search"]::placeholder {
     color: var(--color-gray);
 }
 
@@ -337,7 +338,7 @@ main .container .left .profile {
     width: 2rem;
     height: 2rem;
     align-self: start;
-    border: 2px solid var(--color-primary);
+    border: 3px solid var(--color-primary);
 }
 
 /* ----- Create Post Section ----- */
@@ -422,3 +423,271 @@ main .container .left .profile {
 
 
 /* >>>---------- Right Section ---------- */
+main .container .right {
+    height: max-content;
+    position: sticky;
+    top: var(--sticky-top-right);
+    bottom: 0;
+}
+
+/* --- Message Section --- */
+.right .messages {
+    background: var(--color-white);
+    border-radius: var(--card-borde-radius);
+    padding: var(--card-padding);
+}
+
+.right .messages .heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.right .messages i {
+    font-size: 1.4rem;
+}
+
+.right .messages .search_bar {
+    display: flex;
+    margin-bottom: 1rem;
+}
+
+.right .messages .category {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.right .messages .category h6 {
+    width: 100%;
+    text-align: center;
+    border-bottom: 4px solid var(--color-light);
+    padding-bottom: 0.5rem;
+    font-size: .8rem;
+}
+
+.right .messages .category .active {
+    border-color: var(--color-dark);
+}
+
+.right .messages .category .message_requests {
+    color: var(--color-primary);
+}
+
+.right .messages .message {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    align-items: start;
+}
+
+.right .messages .message .profile_picture {
+    position: relative;
+    overflow: visible;
+}
+
+.right .profile_picture img {
+    border-radius: 50%;
+}
+
+.right .messages .message:last-child {
+    margin: 0;
+}
+
+.right .messages .message p {
+    font-size: .8rem;
+}
+
+.right .messages .message .profile_picture .active {
+    width: 0.7rem;
+    height: .7rem;
+    border-radius: 50%;
+    border: 1px solid var(--color-white);
+    background: var(--color-success);
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+/* --- Friend Request Section --- */
+.right .friend_requests {
+    margin-top: 1rem;
+}
+
+.right .friend_requests h4 {
+    color: var(--color-gray);
+    margin: 1rem 0;
+}
+
+.right .friend_requests .request {
+    background: var(--color-white);
+    padding: var(--card-padding);
+    border-radius: var(--card-borde-radius);
+    margin-bottom: 0.5rem;
+}
+
+.right .friend_requests .request .info {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: .5rem;
+}
+
+.right .friend_requests .request .action {
+    display: flex;
+    gap: .5rem;
+}
+
+/* ------------------------------------------------ */
+/* ==========--- THEME CUSTOMIZATION ---=========== */
+/* ------------------------------------------------ */
+.customize_theme {
+    background: rgba(255, 255, 255, 0.5);
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    text-align: center;
+    display: grid;
+    place-items: center;
+    font-size: 0.9rem;
+    /* display: none; */
+}
+
+.customize_theme .card {
+    background: var(--color-white);
+    padding: 3rem;
+    border-radius: var(--card-borde-radius);
+    width: 50%;
+}
+
+/* >>>---------- Font Sizes ---------- */
+.customize_theme .font_size {
+    margin-top: 5rem;
+}
+
+.customize_theme .font_size > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--color-light);
+    padding: var(--search-padding);
+    border-radius: var(--card-borde-radius);
+}
+
+.customize_theme .font_size .choose_size {
+    background: var(--color-secondary);
+    height: 0.3rem;
+    width: 100%;
+    margin: 0 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.customize_theme .font_size .choose_size span {
+    width: 1rem;
+    height: 1rem;
+    background: var(--color-secondary);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.customize_theme .font_size .choose_size span.active {
+    background: var(--color-primary);
+}
+
+/* >>>---------- Primary Colors ---------- */
+.customize_theme .color {
+    margin-top: 2rem;
+}
+
+.customize_theme .choose_color {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--color-light);
+    padding: var(--search-padding);
+    border-radius: var(--card-borde-radius);
+}
+
+.customize_theme .choose_color span {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.customize_theme .choose_color span:nth-child(1) {
+    background: hsl(252, 75%, 65%);
+}
+.customize_theme .choose_color span:nth-child(2) {
+    background: hsl(25, 75%, 65%);
+}
+.customize_theme .choose_color span:nth-child(3) {
+    background: hsl(359, 75%, 65%);
+}
+.customize_theme .choose_color span:nth-child(4) {
+    background: hsl(128, 75%, 65%);
+}
+.customize_theme .choose_color span:nth-child(5) {
+    background: hsl(215, 75%, 65%);
+}
+
+.customize_theme .choose_color span.active {
+    border: 5px solid white;
+}
+
+/* >>>---------- Background Colors ---------- */
+.customize_theme .background {
+    margin-top: 2rem;
+}
+
+.customize_theme .choose_bg {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.customize_theme .choose_bg > div {
+    padding: var(--card-padding);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 0.4rem;
+    cursor: pointer;
+}
+
+.customize_theme .choose_bg > div.active {
+    border: 2px solid var(--color-primary);
+}
+
+.customize_theme .choose_bg .bg-1 {
+    background: white;
+    color: black;
+}
+.customize_theme .choose_bg .bg-2 {
+    background: hsl(252, 30%, 17%);
+    color: white;
+}
+.customize_theme .choose_bg .bg-3 {
+    background: hsl(252, 30%, 10%);
+    color: white;
+}
+
+.customize_theme .choose_bg > div span {
+    width: 2rem;
+    height: 2rem;
+    border: 2px solid var(--color-gray);
+    margin-right: 1rem;
+    border-radius: 50%;
+}
+
+/* ------------------- */
+/* --- 1:49:57 Min --- */
+/* ------------------- */

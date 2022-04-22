@@ -553,7 +553,7 @@ main .container .right {
     display: grid;
     place-items: center;
     font-size: 0.9rem;
-    /* display: none; */
+    display: none;
 }
 
 .customize_theme .card {
@@ -688,6 +688,87 @@ main .container .right {
     border-radius: 50%;
 }
 
-/* ------------------- */
-/* --- 1:49:57 Min --- */
-/* ------------------- */
+/* ------------------------------------------------ */
+/* MEDIA QUERIES FOR SMALL LAPTOPS AND BIG TABLETS  */
+/* ------------------------------------------------ */
+@media screen and (max-width: 1200px) {
+    
+    .container {
+        width: 96%;
+    }
+
+    main .container {
+        grid-template-columns: 5rem auto 30vw;
+        gap: 1rem;
+    }
+
+    .left {
+        width: 5rem;
+            z-index: 5;
+    }
+            
+    main .container .left .profile {
+        display: none;
+    }
+            
+    .sidebar h3 {
+        display: none;
+    }
+            
+    .left .btn {
+        display: none;
+    }
+}
+
+/* ------------------------------------------------- */
+/* MEDIA QUERIES FOR SMALL TABLETS AND MOBILE PHONES */
+/* ------------------------------------------------- */
+@media screen and (max-width: 992px) {
+
+    nav .search_bar {
+        display: none;
+    }
+
+    main .container {
+        grid-template-columns: auto 5rem;
+    }
+
+    .left {
+        width: 3rem;
+        z-index: 5;
+    }
+    
+    .left .sidebar i {
+        font-size: 1.1rem;
+        margin-left: .7rem;
+    }
+
+    main .container .left {
+        grid-column: 3/4;
+        position: fixed;
+        bottom: 0;
+        right: 0;
+    }
+
+    /* ------ Notification Popup ------ */
+    .left .notifications_popup {
+        position: absolute;
+        left: -20rem;
+        width: 20rem;
+    }
+    
+    .left .notifications_popup::before {
+        position: absolute;
+        top: 1.3rem;
+        left: calc(20rem - 0.6rem);
+        display: block;
+    }
+
+    main .container .middle {
+        grid-column: 1/3;
+    }
+
+    main .container .right {
+        display: none;
+    }
+}

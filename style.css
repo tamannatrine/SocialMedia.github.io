@@ -1,26 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
 
-*, 
-*::before, 
-*::after {
-    margin: 0;
-    padding: 0;
-    outline: 0;
-    box-sizing: border-box;
-    text-decoration: none;
-    list-style: none;
-    border: none;
-}
-
 :root {
-    --color-dark: hsl(252, 30%, 17%);
-    --color-light: hsl(252, 30%, 95%);
-    --color-gray: hsl(252, 15%, 65%);
-    --color-primary: hsl(252, 75%, 65%);
+    --primary-color-hue: 252;
+    --light-color-lightness: 95%;
+    --dark-color-lightness: 17%;
+    --white-color-lightness: 100%;
+
+    --color-white: hsl(252, 30%, var(--white-color-lightness));
+    --color-light: hsl(252, 30%, var(--light-color-lightness));
+    --color-gray: hsl(var(--primary-color-hue), 5%, 65%);
+    --color-primary: hsl(var(--primary-color-hue), 75%, 65%);
     --color-secondary: hsl(252, 100%, 90%);
     --color-success: hsl(120, 95%, 65%);
     --color-danger: hsl(0, 95%, 65%);
-    --color-white: hsl(252, 30%, 100%);
+    --color-dark: hsl(252, 30%, var(--dark-color-lightness));
     --color-black: hsl(252, 30%, 10%);
 
     --border-radius: 2rem;
@@ -31,6 +24,22 @@
 
     --sticky-top-left: 5.4rem;
     --sticky-top-right: -18rem;
+}
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    border: none;
+}
+
+::-webkit-scrollbar {
+    display: none;
 }
 
 body {
@@ -250,7 +259,9 @@ main .container .left .profile {
     position: absolute;
     top: 0;
     left: 110%;
-    width: 30rem;
+    width: 25rem;
+    height: 25rem;
+    overflow: auto;
     background: var(--color-white);
     border-radius: var(--card-borde-radius);
     padding: var(--card-padding);
@@ -374,13 +385,13 @@ main .container .left .profile {
 .middle .feed .head {
     display: flex;
     justify-content: space-between;
-    align-items: start;
+    align-items: center;
 }
 
 .middle .feed .user {
     display: flex;
     gap: 1rem;
-    align-items: start;
+    align-items: center;
 }
 
 .middle .feed .photo {
@@ -408,7 +419,7 @@ main .container .left .profile {
     display: block;
     border-radius: 50%;
     overflow: hidden;
-    border: 2px solid var(--color-white);
+    border: 3px solid var(--color-white);
     margin-left: -0.6rem;
 }
 
@@ -550,8 +561,8 @@ main .container .right {
 /* ------------------------------------------------ */
 .customize_theme {
     background: rgba(255, 255, 255, 0.5);
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     position: fixed;
     top: 0;
     left: 0;
@@ -568,6 +579,7 @@ main .container .right {
     padding: 3rem;
     border-radius: var(--card-borde-radius);
     width: 50%;
+    box-shadow: 0 0 1rem var(--color-primary);
 }
 
 /* >>>---------- Font Sizes ---------- */
@@ -664,7 +676,7 @@ main .container .right {
     width: 100%;
     display: flex;
     align-items: center;
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-weight: bold;
     border-radius: 0.4rem;
     cursor: pointer;
@@ -729,10 +741,14 @@ main .container .right {
     .left .btn {
         display: none;
     }
+
+    .customize_theme .card {
+        width: 80vw;
+    }
 }
 
 /* ------------------------------------------------- */
-/* MEDIA QUERIES FOR SMALL TABLETS AND MOBILE PHONES */
+/* -------- MEDIA QUERIES FOR SMALL TABLETS -------- */
 /* ------------------------------------------------- */
 @media screen and (max-width: 992px) {
 
@@ -782,5 +798,104 @@ main .container .right {
 
     main .container .right {
         display: none;
+    }
+
+    /* ------ Theme Customizatiom ------ */
+    .customize_theme .card {
+        width: 92vw;
+        padding: 2.5rem;
+    }
+    
+    .customize_theme .choose_bg {
+        gap: 1rem;
+    }
+    
+    .customize_theme .choose_bg>div {
+        padding-right: 2rem;
+        padding-left: 1.5rem;
+    }
+    
+    .customize_theme .choose_bg>div span {
+        width: 2rem;
+        height: 2rem;
+        margin-right: 1.5rem;
+    }
+}
+
+/* ------------------------------------------------- */
+/* --------------- MOBILE PHONES ------------------- */
+/* ------------------------------------------------- */
+@media screen and (max-width: 600px) {
+
+    nav .search_bar {
+        display: none;
+    }
+
+    main .container {
+        grid-template-columns: 0 auto 4.2rem;
+        gap: 0;
+    }
+
+    .left {
+        width: 3.2rem;
+        z-index: 5;
+    }
+
+    .left .sidebar i {
+        font-size: 1.2rem;
+        margin-left: .7rem;
+    }
+
+    main .container .left {
+        grid-column: 3/4;
+        position: fixed;
+        bottom: 0;
+        right: 0;
+    }
+
+    /* ------ Notification Popup ------ */
+    .left .notifications_popup {
+        position: absolute;
+        left: -20rem;
+        width: 20rem;
+        height: 62vh;
+        overflow:hidden;
+    }
+
+    .left .notifications_popup::before {
+        position: absolute;
+        top: 1.3rem;
+        left: calc(20rem - 0.6rem);
+        display: block;
+    }
+
+    main .container .middle {
+        grid-column: 1/3;
+    }
+
+    main .container .right {
+        display: none;
+    }
+
+    /* ------ Theme Customizatiom ------ */
+    .customize_theme .card {
+        width: 92vw;
+        padding: 1.5rem;
+    }
+    
+    .customize_theme .choose_bg {
+        gap: .5rem;  
+    }
+    
+    .customize_theme .choose_bg>div {
+        font-size: .9rem;
+        padding-right: .3rem;
+        padding-left: .4rem;
+    }
+    
+    .customize_theme .choose_bg>div span {
+        width: 1rem;
+        height: 1rem;
+        margin-right: .2rem;
     }
 }
